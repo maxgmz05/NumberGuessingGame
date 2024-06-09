@@ -8,9 +8,9 @@ def game_manager():
         x=int(input("How hard do you want the game to be in the scale of 1-10?\n:"))
         if x>10:
             print("\nthe game can only handle up to a difficulty of 10")
-        sys_num=rand(x,int(x**1.2))
+        sys_num=rand(x,5+int(x*1.2))
 
-        remaining_turns=int(x/2)
+        remaining_turns=4+int(x/2)
         if remaining_turns<1:
             print("\nEnter a Bigger number, the game can't be this easy")
     return(x,sys_num,remaining_turns)
@@ -21,7 +21,7 @@ def game(y,num,rem):
         rem=rem-1
         if guess==num:
             return (True,rem)
-        elif guess<umb:
+        elif guess<num:
             print("\nGuess Bigger")
         elif guess>num:
             print("\nGuess Smaller")
@@ -35,4 +35,3 @@ if state:
     print("You won with",remaining_turns,"remaining")
 else:
     print("No more turns left, You lost")
-    
